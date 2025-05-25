@@ -7,7 +7,7 @@ import TheoryPage from "./TheoryPage.jsx";
 import InstructionsPage from "./InstructionsPage.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/Compton-effect-lab">
+  <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/playground" element={<LabPage />} />

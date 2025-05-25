@@ -5,7 +5,7 @@ function Home() {
       <main className="min-h-screen relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}background.png)` }}
+          style={{ backgroundImage: `url('/background.png')` }}
         ></div>
 
         {/* blur */}
@@ -25,7 +25,7 @@ function Home() {
 
             <div className="grid grid-cols-2 p-4 font-semibold gap-4 mt-5   ">
               <a
-                href={`${import.meta.env.BASE_URL}Lab95ukr.docx`}
+                href="/Lab95ukr.docx"
                 download
                 className="bg-gray-600/40 p-5 rounded-lg border-2 border-gray-400 transition-all duration-300
                 hover:bg-cyan-600/90 hover:scale-105 hover:border-cyan-300 cursor-pointer"
@@ -61,7 +61,7 @@ function Home() {
         </div>
 
         <img
-          src={`${import.meta.env.BASE_URL}pdtu-logo.png`}
+          src="/pdtu-logo.png"
           alt="Логотип"
           className="absolute bottom-5 left-5 w-16 h-16 object-contain z-10"
         />
