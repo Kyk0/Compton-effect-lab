@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   LineChart,
   Line,
@@ -17,12 +17,14 @@ const initialEnergies = {
 
 const angles = [0, 10, 20, 30, 40, 50];
 
+// compton shift
 function computeComptonScatteredEnergy(E_keV, angleDeg) {
   const electronRestKeV = 511;
   const theta = (angleDeg * Math.PI) / 180;
   return E_keV / (1 + (E_keV / electronRestKeV) * (1 - Math.cos(theta)));
 }
 
+// peak generation
 function generateMultiPeakData(
   peaks,
   { xStart = 0, xEnd = 2000, step = 10 } = {}
@@ -42,6 +44,14 @@ export default function LabPage() {
   const [element, setElement] = useState("Y-88");
   const [angle, setAngle] = useState(50);
   const [isOn, setIsOn] = useState(false);
+
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1409);
+
+  useEffect(() => {
+    const handleResize = () => setIsWideScreen(window.innerWidth >= 1409);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const peaks = initialEnergies[element].map((E0) => ({
     center: computeComptonScatteredEnergy(E0, angle),
@@ -63,6 +73,7 @@ export default function LabPage() {
       <div className="absolute inset-0 backdrop-blur-sm backdrop-brightness-50 z-0 bg-black/70" />
 
       <div className="relative z-10 min-h-screen flex flex-col items-center p-6 gap-10">
+        {/* back button */}
         <Link
           to="/"
           className="absolute top-5 left-5 bg-gray-800/40 px-4 py-2 rounded-lg border-2 border-gray-400 hover:bg-red-600/90 transition-all duration-300 font-semibold"
@@ -70,6 +81,7 @@ export default function LabPage() {
           На головну
         </Link>
 
+        {/* settings */}
         <div className="bg-gray-900/70 p-5 rounded-xl border border-gray-600 w-full md:w-2/3 text-center mt-24 transition-opacity duration-300">
           <fieldset disabled={!isOn} className={`${!isOn ? 'opacity-50' : ''}`}>
             <h2 className="text-xl font-semibold mb-4">Налаштування</h2>
@@ -106,7 +118,38 @@ export default function LabPage() {
           </fieldset>
         </div>
 
+        {/* cables image */}
+        {isWideScreen ? (
+          <img
+            src="/cables.png"
+            alt="Cables"
+            className="absolute"
+            style={{
+              top: "70%",
+              left: "41%",
+              width: "300px",
+              transform: "translate(-50%, -50%) rotate(23deg)",
+              zIndex: 0,
+            }}
+          />
+        ) : (
+          <img
+            src="/cables.png"
+            alt="Cables"
+            className="absolute"
+            style={{
+              top: "62%",
+              left: "47%",
+              width: "240px",
+              transform: "translate(-50%, -50%) rotate(115deg)",
+              zIndex: 0,
+            }}
+          />
+        )}
+
+        {/* layout */}
         <div className="flex flex-wrap justify-center items-center gap-10 w-full md:w-4/5 mt-20">
+          {/* setup image and power button */}
           <div className="relative">
             <img
               src="/compton.png"
@@ -140,6 +183,7 @@ export default function LabPage() {
             </div>
           </div>
 
+          {/* screen and chart */}
           <div className="relative w-full max-w-[650px] aspect-[16/9]">
             <img
               src="/screen.png"
@@ -159,6 +203,7 @@ export default function LabPage() {
                 overflow: "hidden",
               }}
             >
+              {/* chart */}
               {isOn && (
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart
