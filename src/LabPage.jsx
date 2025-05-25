@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import BackButton from './BackButton.jsx';
 import { useState, useEffect } from "react";
 import {
   LineChart,
@@ -74,12 +74,7 @@ export default function LabPage() {
 
       <div className="relative z-10 min-h-screen flex flex-col items-center p-6 gap-10">
         {/* back button */}
-        <Link
-          to="/"
-          className="absolute top-5 left-5 bg-gray-800/40 px-4 py-2 rounded-lg border-2 border-gray-400 hover:bg-red-600/90 transition-all duration-300 font-semibold"
-        >
-          На головну
-        </Link>
+        <BackButton />
 
         {/* settings */}
         <div className="bg-gray-900/70 p-5 rounded-xl border border-gray-600 w-full md:w-2/3 text-center mt-24 transition-opacity duration-300">
