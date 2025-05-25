@@ -6,7 +6,7 @@ export default function InstructionsPage() {
       {/* background */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/background.png')" }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}background.png)` }}
       />
       <div className="absolute inset-0 backdrop-blur-sm bg-black/70 z-0" />
 
@@ -17,7 +17,7 @@ export default function InstructionsPage() {
         {/* content box */}
         <div className="bg-white rounded-2xl shadow-xl w-full max-w-3xl my-8 h-[calc(100vh-4rem)] overflow-hidden">
           <iframe
-            src="/Plan/Lab95ukr_plan.html"
+            src={`${import.meta.env.BASE_URL}Plan/Lab95ukr_plan.html`}
             title="Plan"
             className="w-full h-full border-none rounded-2xl px-6 py-2"
           />

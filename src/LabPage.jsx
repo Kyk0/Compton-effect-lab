@@ -68,7 +68,7 @@ export default function LabPage() {
       <div className="absolute inset-0 bg-black/70 z-0" />
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/playground.jpeg')" }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}playground.jpeg)` }}
       />
       <div className="absolute inset-0 backdrop-blur-sm backdrop-brightness-50 z-0 bg-black/70" />
 
@@ -116,7 +116,7 @@ export default function LabPage() {
         {/* cables image */}
         {isWideScreen ? (
           <img
-            src="/cables.png"
+            src={`${import.meta.env.BASE_URL}cables.png`}
             alt="Cables"
             className="absolute"
             style={{
@@ -129,7 +129,7 @@ export default function LabPage() {
           />
         ) : (
           <img
-            src="/cables.png"
+            src={`${import.meta.env.BASE_URL}cables.png`}
             alt="Cables"
             className="absolute"
             style={{
@@ -147,7 +147,7 @@ export default function LabPage() {
           {/* setup image and power button */}
           <div className="relative">
             <img
-              src="/compton.png"
+              src={`${import.meta.env.BASE_URL}compton.png`}
               alt="Compton setup"
               style={{
                 width: "400px",
@@ -181,7 +181,7 @@ export default function LabPage() {
           {/* screen and chart */}
           <div className="relative w-full max-w-[650px] aspect-[16/9]">
             <img
-              src="/screen.png"
+              src={`${import.meta.env.BASE_URL}screen.png`}
               alt="Display"
               className="w-full h-full object-contain"
             />
