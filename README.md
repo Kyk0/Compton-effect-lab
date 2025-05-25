@@ -4,7 +4,7 @@ A simple web app that demonstrates the Compton scattering experiment. It include
 
 ## Live Demo
 
-[View the site](https://kyk0.github.io/Compton-effect-lab/)
+[View the site](https://compton-effect-lab.netlify.app/)
 
 ## Project Structure
 
