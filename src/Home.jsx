@@ -25,27 +25,29 @@ function Home() {
 
             <div className="grid grid-cols-2 p-4 font-semibold gap-4 mt-5   ">
               <a
-                href="/Lab95укр.doc"
+                href="/Lab95ukr.docx"
                 download
                 className="bg-gray-600/40 p-5 rounded-lg border-2 border-gray-400 transition-all duration-300
                 hover:bg-cyan-600/90 hover:scale-105 hover:border-cyan-300 cursor-pointer"
               >
-                Теоретичні положення
+                Завантажити довідку
               </a>
 
-              <div
+              <Link
+                to="/theory"
                 className="bg-gray-600/40 p-5 rounded-lg border-2 border-gray-400 transition-all duration-300
                 hover:bg-purple-600/90 hover:scale-105 hover:border-purple-300 cursor-pointer"
               >
-                Методика вимірювань
-              </div>
+                Теоретичні положення
+              </Link>
 
-              <div
+              <Link
+                to="/instructions"
                 className="bg-gray-600/40 p-5 rounded-lg border-2 border-gray-400 transition-all duration-300
                 hover:bg-pink-600/90 hover:scale-105 hover:border-pink-300 cursor-pointer"
               >
-                Довідка
-              </div>
+                Порядок виконання
+              </Link>
 
               <Link
                 to="/playground"
