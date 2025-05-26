@@ -1,4 +1,4 @@
-import BackButton from './BackButton.jsx';
+import BackButton from "./BackButton.jsx";
 import { useState, useEffect } from "react";
 import {
   LineChart,
@@ -68,7 +68,7 @@ export default function LabPage() {
       <div className="absolute inset-0 bg-black/70 z-0" />
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: 'url(playground.jpeg)' }}
+        style={{ backgroundImage: "url(playground.jpeg)" }}
       />
       <div className="absolute inset-0 backdrop-blur-sm backdrop-brightness-50 z-0 bg-black/70" />
 
@@ -78,7 +78,7 @@ export default function LabPage() {
 
         {/* settings */}
         <div className="bg-gray-900/70 p-5 rounded-xl border border-gray-600 w-full md:w-2/3 text-center mt-24 transition-opacity duration-300">
-          <fieldset disabled={!isOn} className={`${!isOn ? 'opacity-50' : ''}`}>
+          <fieldset disabled={!isOn} className={`${!isOn ? "opacity-50" : ""}`}>
             <h2 className="text-xl font-semibold mb-4">Налаштування</h2>
             <div className="flex flex-col md:flex-row justify-center items-center gap-6">
               <div className="w-full md:w-1/2">
